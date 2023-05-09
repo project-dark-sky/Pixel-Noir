@@ -68,7 +68,7 @@ public class Dijkstra
             iteration++;
         }
 
-        Debug.Log("NO PATH!!!!!!!!!!!!!!!");
+        Debug.Log("NO PATH!!!!!!!!!!!!");
 
         outputPath = new List<NodeType>();
         return outputPath;
