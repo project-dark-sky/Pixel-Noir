@@ -29,6 +29,7 @@ public class KeyboardMoverByTile : KeyboardMover
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //check if the player took the treasure
         if (collision.gameObject.CompareTag(treasureTag))
         {
             Destroy(collision.gameObject);
@@ -41,6 +42,7 @@ public class KeyboardMoverByTile : KeyboardMover
         Vector3 newPosition = NewPosition();
         TileBase tileOnNewPosition = TileOnPosition(newPosition);
 
+        //if he took the treasure draw grass wherever he walks
         if (hasTreasure)
         {
             tilemap.SetTile(Vector3Int.RoundToInt(transform.position), grassTile);

@@ -15,6 +15,7 @@ public class BoatScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //if he took the boat the player can walk on the water
         if (collision.gameObject.CompareTag(playerTag))
         {
             Destroy(gameObject);
