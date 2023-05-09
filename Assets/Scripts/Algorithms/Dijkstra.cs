@@ -5,8 +5,6 @@ using System.IO;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using static TreeEditor.TreeEditorHelper;
-using static UnityEditor.PlayerSettings;
 
 /*Implementation if dijksta algo on tailmap grid*/
 public class Dijkstra

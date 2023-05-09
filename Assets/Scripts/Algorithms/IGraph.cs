@@ -1,8 +1,5 @@
 using System.Collections.Generic;
-using UnityEngine.Tilemaps;
 using UnityEngine;
-using Unity.VisualScripting;
-using static TreeEditor.TreeEditorHelper;
 
 /**
  * An abstract graph.
