@@ -31,11 +31,9 @@ public class Dijkstra
         List<NodeType> queue = new List<NodeType>();
 
         distances[startNode] = 0;
-
         queue.Add(startNode);
-        int iteration = 0;
 
-        while (queue.Count > 0 && iteration < maxiterations)
+        while (queue.Count > 0)
         {
             NodeType currentNode = queue.OrderBy(n => distances[n]).First();
             queue.Remove(currentNode);
@@ -65,7 +63,6 @@ public class Dijkstra
                     queue.Add(neighborNode);
                 }
             }
-            iteration++;
         }
 
         Debug.Log("NO PATH!!!!!!!!!!!!");

@@ -3,24 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-//This script repersent the chicken on the tailmap
-public class ChickenScript : MonoBehaviour
+public class PowerUpsScript : MonoBehaviour
 {
-    const string playerTag = "Player";
-
     [SerializeField]
     AllowedTiles allowedTiles = null;
 
     [SerializeField]
-    TileBase stoneTile = null;
+    TileBase tile = null;
+    const string playerTag = "Player";
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //if he took the chicken the player can walk on the stones
+        //if he took the powerup he can now walk in this tile.
         if (collision.gameObject.CompareTag(playerTag))
         {
             Destroy(gameObject);
-            allowedTiles.InsertTile(stoneTile);
+            allowedTiles.InsertTile(tile);
         }
     }
 }

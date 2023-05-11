@@ -18,8 +18,8 @@ public class KeyboardMoverByTile : KeyboardMover
     [SerializeField]
     TileBase grassTile = null;
 
-    bool hasTreasure = false;
-    const string treasureTag = "Treasure";
+    private bool hasTreasure = false;
+    private const string treasureTag = "Treasure";
 
     private TileBase TileOnPosition(Vector3 worldPosition)
     {
@@ -42,19 +42,20 @@ public class KeyboardMoverByTile : KeyboardMover
         Vector3 newPosition = NewPosition();
         TileBase tileOnNewPosition = TileOnPosition(newPosition);
 
-        //if he took the treasure draw grass wherever he walks
-        if (hasTreasure)
-        {
-            tilemap.SetTile(Vector3Int.RoundToInt(transform.position), grassTile);
-        }
-
         if (allowedTiles.Contain(tileOnNewPosition))
         {
             transform.position = newPosition;
         }
         else
         {
+            tilemap.SetTile(Vector3Int.RoundToInt(newPosition), grassTile);
             Debug.Log("You cannot walk on " + tileOnNewPosition + "!");
+        }
+
+        //if he took the treasure draw grass wherever he walks
+        if (hasTreasure)
+        {
+            tilemap.SetTile(Vector3Int.RoundToInt(newPosition), grassTile);
         }
     }
 }
